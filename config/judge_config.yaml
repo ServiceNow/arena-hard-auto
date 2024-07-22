@@ -3,7 +3,8 @@ name: judgment config file for Arena Hard
 bench_name: arena-hard-v0.1
 
 # Arena Hard default
-judge_model: gpt-4-1106-preview
+# judge_model: gpt-4-1106-preview
+judge_model: gpt-4-32k
 reference: False # Optional
 ref_model: null  
 
@@ -22,4 +23,10 @@ prompt_template: ["<|User Prompt|>\n{question_1}\n\n<|The Start of Assistant A's
 
 # Add your model below for evaluation
 model_list:
-  - gpt-3.5-turbo-0125
+  # - gpt-3.5-turbo-0125
+  # - mixtral_instruct_8x22b
+  # - plato_7b_kto_all_37k_iter1_epoch2_2
+  # - nowllm_mistral_7b_24_03_28_sft_v1_150k_sharegpt_scale
+  # - plato_7b_ktomix50k
+  # - nowllm_mistral_7b_24_03_28_sft_v1_150k_sharegpt_scale_round2
+  - Test_model

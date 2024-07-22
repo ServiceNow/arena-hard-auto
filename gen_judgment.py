@@ -90,6 +90,7 @@ def judgment(**args):
                         prompt_args[f"ref_answer_{i+j+1}"] = turn["content"]
             
             user_prompt = template.format(**prompt_args)
+            user_prompt = user_prompt.replace("<|end|>", "")
             conv.append({"role": "user", "content": user_prompt})
 
         judgment = ""
@@ -170,7 +171,11 @@ if __name__ == "__main__":
 
     endpoint_info = endpoint_list[configs["judge_model"]]
 
-    with concurrent.futures.ThreadPoolExecutor(max_workers=endpoint_info["parallel"]) as executor:
+    # with concurrent.futures.ThreadPoolExecutor(max_workers=endpoint_info["parallel"]) as executor:
+    max_workers = endpoint_info["parallel"]
+    print(f"Max workers: {max_workers}")
+    # max_workers = 1
+    with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
         futures = []
         for model in models:
             count = 0

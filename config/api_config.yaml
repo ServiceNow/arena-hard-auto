@@ -12,16 +12,155 @@ gpt-3.5-turbo-0125:
     model_name: gpt-3.5-turbo-0125
     endpoints: null
     api_type: openai
-    parallel: 8
+    parallel: 50
 
 gpt-4-0314:
     model_name: gpt-4-0314
     endpoints: null
     api_type: openai
-    parallel: 8
+    parallel: 50
 
 gpt-4-1106-preview:
     model_name: gpt-4-1106-preview
     endpoints: null
     api_type: openai
-    parallel: 8
+    parallel: 50
+
+gpt-4-32k:
+    model_name: gpt-4-32k
+    endpoints:
+        - api_base: https://atg-canada-east.openai.azure.com/
+          api_key: 899ed382e11e44fab9e8fc13310075f9
+          api_version: 2023-07-01-preview
+        # - api_base: https://test-atg-openai.openai.azure.com/
+        #   api_key: bcea2612fb0e40c88c3c06289b2c7d70
+        #   api_version: 2024-02-15-preview
+    api_type: azure
+    parallel: 50
+
+mixtral_instruct_8x22b:
+    model_name: mixtral_instruct_8x22b
+    endpoints:
+        - api_base: https://38758ec0-a501-4f4a-a250-bd7b1fca024c-8000.job.console.elementai.com/v1
+          api_key: 8o30OElfDYV_D6YbbznT0A:GDC2BsXIfSdfjv9iWka3V4MkazpvHfe0cCwXohzbP0Q
+    api_type: toolkit_vllm
+    parallel: 50
+
+plato_7b_kto_all_37k_iter1_epoch2_2:
+    model_name: plato_7b_kto_all_37k_iter1_epoch2_2
+    endpoints:
+        - api_base: https://d7e57911-c892-4265-b516-78e38dd54029.job.console.elementai.com/generate
+          api_key: 8o30OElfDYV_D6YbbznT0A:GDC2BsXIfSdfjv9iWka3V4MkazpvHfe0cCwXohzbP0Q
+    api_type: toolkit_tgi
+    parallel: 50
+
+plato_7b_kto_all_37k_iter1_epoch2_1:
+    model_name: plato_7b_kto_all_37k_iter1_epoch2_1
+    endpoints:
+        - api_base: https://5af11fe6-b322-4f39-9dd5-b4e0a29e3eb3.job.console.elementai.com/generate
+          api_key: 8o30OElfDYV_D6YbbznT0A:GDC2BsXIfSdfjv9iWka3V4MkazpvHfe0cCwXohzbP0Q
+    api_type: toolkit_tgi
+    parallel: 50
+
+plato_7b_ktomix50k:
+    model_name: plato_7b_ktomix50k
+    endpoints:
+        - api_base: https://0a02efe9-3f6e-4471-a7ca-9530c90e420d.job.console.elementai.com/generate
+          api_key: 8o30OElfDYV_D6YbbznT0A:GDC2BsXIfSdfjv9iWka3V4MkazpvHfe0cCwXohzbP0Q
+    api_type: toolkit_tgi
+    parallel: 50
+
+nowllm_mistral_7b_24_03_28_sft_v1_150k_sharegpt_scale:
+    model_name: nowllm_mistral_7b_24_03_28_sft_v1_150k_sharegpt_scale
+    endpoints:
+        - api_base: https://0834173b-0e26-4f5c-af82-319d22a857df.job.console.elementai.com/generate
+          api_key: 8o30OElfDYV_D6YbbznT0A:GDC2BsXIfSdfjv9iWka3V4MkazpvHfe0cCwXohzbP0Q
+    api_type: toolkit_tgi
+    parallel: 50
+
+mixtral_instruct_tgi:
+    model_name: mixtral_instruct_tgi
+    endpoints:
+        - api_base: https://d7e3d127-4af1-4126-b9f2-50f901eae9ea.job.console.elementai.com/generate
+          api_key: 8o30OElfDYV_D6YbbznT0A:GDC2BsXIfSdfjv9iWka3V4MkazpvHfe0cCwXohzbP0Q
+    api_type: toolkit_tgi
+    parallel: 50
+
+mistral_7b_selfdist:
+    model_name: mistral_7b_selfdist
+    endpoints:
+        - api_base: https://7788d427-bf47-49c4-9f22-fcfd94b47c5d-8080.job.console.elementai.com/generate
+          api_key: 8o30OElfDYV_D6YbbznT0A:GDC2BsXIfSdfjv9iWka3V4MkazpvHfe0cCwXohzbP0Q
+    api_type: toolkit_tgi
+    parallel: 50
+
+plato_7b_kto_all_37k_iter0:
+    model_name: plato_7b_kto_all_37k_iter0
+    endpoints:
+        - api_base: https://63257fd1-6379-4c36-bc39-483eae14eb0a.job.console.elementai.com/generate
+          api_key: 8o30OElfDYV_D6YbbznT0A:GDC2BsXIfSdfjv9iWka3V4MkazpvHfe0cCwXohzbP0Q
+    api_type: toolkit_tgi
+    parallel: 50
+
+plato_7b_kto_all_37k_iter1_checkpoint_2344:
+    model_name: plato_7b_kto_all_37k_iter1_checkpoint_2344
+    endpoints:
+        - api_base: https://79c8ea04-82fe-48b3-8104-2c4f54c9c26a.job.console.elementai.com/generate
+          api_key: 8o30OElfDYV_D6YbbznT0A:GDC2BsXIfSdfjv9iWka3V4MkazpvHfe0cCwXohzbP0Q
+    api_type: toolkit_tgi
+    parallel: 50
+
+plato_7b_kto_all_37k_iter2_checkpoint_2346:
+    model_name: plato_7b_kto_all_37k_iter2_checkpoint_2346
+    endpoints:
+        - api_base: https://e4b352a1-1059-4501-b099-cd47fb4944b9.job.console.elementai.com/generate
+          api_key: 8o30OElfDYV_D6YbbznT0A:GDC2BsXIfSdfjv9iWka3V4MkazpvHfe0cCwXohzbP0Q
+    api_type: toolkit_tgi
+    parallel: 50
+
+plato_7b_kto_all_37k_iter3:
+    model_name: plato_7b_kto_all_37k_iter3
+    endpoints:
+        - api_base: https://cfafc0f8-be7f-418d-ac5c-3d6551a8db89.job.console.elementai.com/generate
+          api_key: 8o30OElfDYV_D6YbbznT0A:GDC2BsXIfSdfjv9iWka3V4MkazpvHfe0cCwXohzbP0Q
+    api_type: toolkit_tgi
+    parallel: 50
+
+plato_7b_kto_all_37k_iter3_round4:
+    model_name: plato_7b_kto_all_37k_iter3_round4
+    endpoints:
+        - api_base: https://cfafc0f8-be7f-418d-ac5c-3d6551a8db89.job.console.elementai.com/generate
+          api_key: 8o30OElfDYV_D6YbbznT0A:GDC2BsXIfSdfjv9iWka3V4MkazpvHfe0cCwXohzbP0Q
+    api_type: toolkit_tgi
+    parallel: 50
+
+nowllm_mistral_7b_24_03_28_sft_v1_150k_sharegpt_scale_round2:
+    model_name: nowllm_mistral_7b_24_03_28_sft_v1_150k_sharegpt_scale_round2
+    endpoints:
+        - api_base: https://0834173b-0e26-4f5c-af82-319d22a857df.job.console.elementai.com/generate
+          api_key: 8o30OElfDYV_D6YbbznT0A:GDC2BsXIfSdfjv9iWka3V4MkazpvHfe0cCwXohzbP0Q
+    api_type: toolkit_tgi
+    parallel: 50
+
+plato_7b_ktomix50k_round2:
+    model_name: plato_7b_ktomix50k_round2
+    endpoints:
+        - api_base: https://0a02efe9-3f6e-4471-a7ca-9530c90e420d.job.console.elementai.com/generate
+          api_key: 8o30OElfDYV_D6YbbznT0A:GDC2BsXIfSdfjv9iWka3V4MkazpvHfe0cCwXohzbP0Q
+    api_type: toolkit_tgi
+    parallel: 50
+
+Mixtral_8x7b_04_30_24_exp1:
+    model_name: Mixtral_8x7b_04_30_24_exp1
+    endpoints:
+        - api_base: https://8395de00-7d28-48f1-b01e-96483bbb17ff.job.console.elementai.com/generate
+          api_key: 8o30OElfDYV_D6YbbznT0A:GDC2BsXIfSdfjv9iWka3V4MkazpvHfe0cCwXohzbP0Q
+    api_type: toolkit_tgi
+    parallel: 50
+Test_model:
+    model_name: Test_model
+    endpoints:
+        - api_base: https://e0562e23-ee26-4f07-a7f6-faca8a6e52f1.job.console.elementai.com/generate
+          api_key: 8o30OElfDYV_D6YbbznT0A:GDC2BsXIfSdfjv9iWka3V4MkazpvHfe0cCwXohzbP0Q
+    api_type: toolkit_tgi
+    parallel: 50

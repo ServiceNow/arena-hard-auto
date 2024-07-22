@@ -8,11 +8,13 @@ import requests
 from typing import Optional
 from glob import glob
 
+from transformers import AutoTokenizer
+import openai
+
 # API setting constants
 API_MAX_RETRY = 16
 API_RETRY_SLEEP = 10
 API_ERROR_OUTPUT = "$ERROR$"
-
 
 OPENAI_MODEL_LIST = (
     "gpt-3.5-turbo",
@@ -124,6 +126,9 @@ def chat_completion_openai(model, messages, temperature, max_tokens, api_dict=No
         except KeyError:
             print(type(e), e)
             break
+        except Exception as e:
+            print(type(e), e)
+            break
     
     return output
 
@@ -161,6 +166,9 @@ def chat_completion_openai_azure(model, messages, temperature, max_tokens, api_d
             print(type(e), e)
             break
         except KeyError:
+            print(type(e), e)
+            break
+        except Exception as e:
             print(type(e), e)
             break
 
@@ -320,6 +328,97 @@ def chat_completion_cohere(model, messages, temperature, max_tokens):
     
     return output
 
+def chat_completion_now_vllm(model, messages, temperature, max_tokens, api_dict=None):
+    if api_dict:
+        client = openai.OpenAI(
+            base_url=api_dict["api_base"],
+            api_key=api_dict["api_key"],
+        )
+    else:
+        client = openai.OpenAI()
+
+    output = API_ERROR_OUTPUT
+    for _ in range(API_MAX_RETRY):
+        try:
+            # print(messages)
+            prompt = apply_chat_template(messages)
+            completion = client.completions.create(
+                model=model,
+                prompt=prompt,
+                temperature=temperature,
+                max_tokens=max_tokens
+                )
+            # output = completion.choices[0].message.content
+            output = [p.dict()["text"].strip() for p in completion.choices]
+            break
+        except openai.RateLimitError as e:
+            print(type(e), e)
+            time.sleep(API_RETRY_SLEEP)
+        except openai.BadRequestError as e:
+            print(messages)
+            print(type(e), e)
+        except KeyError:
+            print(type(e), e)
+            break
+        except Exception as e:
+            print(type(e), e)
+            break
+
+    return output
+
+def now_tgi(model, messages, temperature, max_tokens, api_dict=None):
+    url = api_dict["api_base"]
+    api_key = api_dict["api_key"]
+    if temperature == 0.0:
+        temperature = 0.001
+        do_sample = False
+    else: 
+        do_sample = True
+
+    headers = {
+        "Authorization" : f"Bearer {api_key}",
+        "Content-Type": "application/json"
+    }
+    prompt = apply_chat_template(messages)
+    output = API_ERROR_OUTPUT
+    try:
+        payload = json.dumps({
+            "inputs": prompt,
+            "parameters": {
+                "temperature": temperature,
+                "max_new_tokens": max_tokens,
+                "do_sample": do_sample,
+                "num_beams": 1
+            }
+        })
+        response = requests.post(url, headers=headers, data=payload)
+        output = response.json()["generated_text"]
+    except Exception as e:
+        print(type(e), e)
+        output = API_ERROR_OUTPUT
+    return output
+
+
+def apply_chat_template(messages, template: str = "mistralai/Mistral-7B-Instruct-v0.1"):
+    # try:
+    #     tokenizer = AutoTokenizer.from_pretrained(template)
+    #     tokenized_chat = tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
+    # except Exception as e:
+    #     print(type(e), e)
+    #     tokenized_chat = messages
+    tokenized_chat = "<s><|user|>\n" + messages[0]["content"] + "\n<|end|>\n<|assistant|>\n"
+    return tokenized_chat
+
+def get_prompt_json_array(messages):
+    prompt = []
+    content = ""
+    for message in messages:
+        content += message["content"] + "\n"
+    prompt = [{
+        "role": "user",
+        "content": content
+    }]
+    return prompt
 
 def reorg_answer_file(answer_file):
     """Sort by question id and de-duplication"""
