@@ -10,3 +10,4 @@ plotly
 scikit-learn
 transformers
 huggingface_hub[cli]
+hf_transfer
