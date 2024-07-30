@@ -22,4 +22,5 @@ model_list:
   # - nowllm_mistral_7b_24_03_28_sft_v1_150k_sharegpt_scale_round2
   # - Mixtral_8x7b_04_30_24_exp1
   # - plato_7b_ktomix50k_round2
-  - Test_model
+  - mixtral_instruct_tgi_endpoint_2
+  # - _official_now_llm_release_nowllm_0524

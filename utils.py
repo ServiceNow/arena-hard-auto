@@ -391,8 +391,12 @@ def now_tgi(model, messages, temperature, max_tokens, api_dict=None):
                 "num_beams": 1
             }
         })
+        print("payload: ", payload)
+        print("before inference:", os.system("ls -l /tmp/transformers_cache/models--mistralai--Mistral-7B-Instruct-v0.1/snapshots/"))
         response = requests.post(url, headers=headers, data=payload)
         output = response.json()["generated_text"]
+        print("output: ", output)
+        print("after inference:", os.system("ls -l /tmp/transformers_cache/models--mistralai--Mistral-7B-Instruct-v0.1/snapshots/"))
     except Exception as e:
         print(type(e), e)
         output = API_ERROR_OUTPUT

@@ -157,10 +157,17 @@ Mixtral_8x7b_04_30_24_exp1:
           api_key: 8o30OElfDYV_D6YbbznT0A:GDC2BsXIfSdfjv9iWka3V4MkazpvHfe0cCwXohzbP0Q
     api_type: toolkit_tgi
     parallel: 50
-Test_model:
-    model_name: Test_model
+mixtral_instruct_tgi_endpoint_2:
+    model_name: mixtral_instruct_tgi_endpoint_2
     endpoints:
-        - api_base: https://e0562e23-ee26-4f07-a7f6-faca8a6e52f1.job.console.elementai.com/generate
+        - api_base: https://a5eb8993-9f05-40cd-b2e9-9c0b205ebd5c-8080.job.console.elementai.com/generate
+          api_key: 8o30OElfDYV_D6YbbznT0A:GDC2BsXIfSdfjv9iWka3V4MkazpvHfe0cCwXohzbP0Q
+    api_type: toolkit_tgi
+    parallel: 50
+_official_now_llm_release_nowllm_0524:
+    model_name: _official_now_llm_release_nowllm_0524
+    endpoints:
+        - api_base: https://26c1534a-60f7-42e7-8b94-f6af2020988b-8080.job.console.elementai.com/generate
           api_key: 8o30OElfDYV_D6YbbznT0A:GDC2BsXIfSdfjv9iWka3V4MkazpvHfe0cCwXohzbP0Q
     api_type: toolkit_tgi
     parallel: 50
