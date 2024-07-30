@@ -49,6 +49,8 @@ def get_answer(
         conv.append({"role": "system", "content": "You are a helpful assistant."})
 
     encoding = tiktoken.encoding_for_model("gpt-3.5-turbo")
+    print("check path: ")
+    print(os.system("ls -lR /tmp/transformers_cache/models--mistralai--Mistral-7B-Instruct-v0.1/snapshots/"))
     tokenizer = AutoTokenizer.from_pretrained(endpoint_info.get("tokenizer", "mistralai/Mistral-7B-Instruct-v0.1"))
     choices = []
     for i in range(num_choices):
@@ -198,6 +200,7 @@ if __name__ == "__main__":
             for future in tqdm.tqdm(
                 concurrent.futures.as_completed(futures), total=len(futures)
             ):
+                print("check future: ", future)
                 future.result()
 
         reorg_answer_file(answer_file)
