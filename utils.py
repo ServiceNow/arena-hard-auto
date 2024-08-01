@@ -392,14 +392,15 @@ def now_tgi(model, messages, temperature, max_tokens, api_dict=None):
             }
         })
         print("payload: ", payload)
-        # print("before inference:", os.system("ls -lR /tmp/transformers_cache/models--mistralai--Mistral-7B-Instruct-v0.1/snapshots/"))
+        print("before inference:", os.system("df -h /tmp"))
         response = requests.post(url, headers=headers, data=payload)
         print("response: ", response)
         output = response.json()["generated_text"]
         # print("output: ", output)
-        # print("after inference:", os.system("ls -lR /tmp/transformers_cache/models--mistralai--Mistral-7B-Instruct-v0.1/snapshots/"))
+        print("after inference:", os.system("df -h /tmp"))
     except Exception as e:
         print(type(e), e)
+        print("error! check tmp space: ", os.system("df -h /tmp"))
         output = API_ERROR_OUTPUT
     return output
 
