@@ -377,8 +377,7 @@ def now_tgi(model, messages, temperature, max_tokens, api_dict=None):
 
     headers = {
         "Authorization" : f"Bearer {api_key}",
-        "Content-Type": "application/json",
-        "Accept": "application/json"
+        "Content-Type": "application/json"
     }
     prompt = apply_chat_template(messages)
     output = API_ERROR_OUTPUT
@@ -397,7 +396,7 @@ def now_tgi(model, messages, temperature, max_tokens, api_dict=None):
         response = requests.post(url, headers=headers, data=payload)
         print("response: ", response)
         output = response.json()["generated_text"]
-        print("output: ", output)
+        # print("output: ", output)
         # print("after inference:", os.system("ls -lR /tmp/transformers_cache/models--mistralai--Mistral-7B-Instruct-v0.1/snapshots/"))
     except Exception as e:
         print(type(e), e)

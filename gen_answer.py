@@ -189,6 +189,8 @@ if __name__ == "__main__":
                 if model in existing_answer and question["question_id"] in existing_answer[model]:
                     count += 1
                     continue
+                # if question["question_id"] != "0df741e684e4408694745a377b3b8e9d":
+                    # continue
                 future = executor.submit(
                     get_answer,
                     question,
