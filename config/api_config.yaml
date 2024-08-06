@@ -26,24 +26,27 @@ gpt-4-1106-preview:
     api_type: openai
     parallel: 50
 
-gpt-4-32k:
-    model_name: gpt-4-32k
+New_GPT4:
+    model_name: New_GPT4
     endpoints:
         - api_base: https://atg-canada-east.openai.azure.com/
-          api_key: 899ed382e11e44fab9e8fc13310075f9
+          api_key: fa66617253414e3a831fca02294430c9
           api_version: 2023-07-01-preview
         # - api_base: https://test-atg-openai.openai.azure.com/
         #   api_key: bcea2612fb0e40c88c3c06289b2c7d70
         #   api_version: 2024-02-15-preview
     api_type: azure
-    parallel: 50
+    parallel: 10
 
-gpt-3.5-turbo-0613:
-    model_name: gpt-35-turbo-0613
+gpt-35-turbo:
+    model_name: gpt-35-turbo
     endpoints:
         - api_base: https://atg-canada-east.openai.azure.com/
-          api_key: 899ed382e11e44fab9e8fc13310075f9
+          api_key: fa66617253414e3a831fca02294430c9
           api_version: 2024-02-01
+        # - api_base: https://test-atg-openai.openai.azure.com/
+        #   api_key: bcea2612fb0e40c88c3c06289b2c7d70
+        #   api_version: 2024-02-01
     api_type: azure
     parallel: 2
 
