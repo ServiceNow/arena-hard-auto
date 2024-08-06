@@ -391,16 +391,16 @@ def now_tgi(model, messages, temperature, max_tokens, api_dict=None):
                 "num_beams": 1
             }
         })
-        print("payload: ", payload)
-        print("before inference:", os.system("df -h /tmp"))
+        # print("payload: ", payload)
+        # print("before inference:", os.system("df -h /tmp"))
         response = requests.post(url, headers=headers, data=payload)
-        print("response: ", response)
+        # print("response: ", response)
         output = response.json()["generated_text"]
         # print("output: ", output)
-        print("after inference:", os.system("df -h /tmp"))
+        # print("after inference:", os.system("df -h /tmp"))
     except Exception as e:
         print(type(e), e)
-        print("error! check tmp space: ", os.system("df -h /tmp"))
+        # print("error! check tmp space: ", os.system("df -h /tmp"))
         output = API_ERROR_OUTPUT
     return output
 
