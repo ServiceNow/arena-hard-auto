@@ -36,7 +36,7 @@ New_GPT4:
         #   api_key: bcea2612fb0e40c88c3c06289b2c7d70
         #   api_version: 2024-02-15-preview
     api_type: azure
-    parallel: 10
+    parallel: 50
 
 gpt-35-turbo:
     model_name: gpt-35-turbo
