@@ -48,7 +48,7 @@ gpt-35-turbo:
         #   api_key: bcea2612fb0e40c88c3c06289b2c7d70
         #   api_version: 2024-02-01
     api_type: azure
-    parallel: 2
+    parallel: 50
 
 mixtral_instruct_8x22b:
     model_name: mixtral_instruct_8x22b
