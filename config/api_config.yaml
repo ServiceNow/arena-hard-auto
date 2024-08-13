@@ -26,6 +26,24 @@ gpt-4-1106-preview:
     api_type: openai
     parallel: 50
 
+openai_gpt4_turbo:
+    model_name: gpt-4-turbo-preview
+    endpoints:
+        - api_base: https://openai-spm.openai.azure.com/
+          api_key: d474a9b11bcb4417b5cb830f5ba8acac
+          api_version: 2024-02-15-preview
+    api_type: azure
+    parallel: 50
+
+openai_gpt4:
+    model_name: gpt-4-32k
+    endpoints:
+        - api_base: https://openai-spm.openai.azure.com/
+          api_key: d474a9b11bcb4417b5cb830f5ba8acac
+          api_version: 2024-02-15-preview
+    api_type: azure
+    parallel: 50      
+
 New_GPT4:
     model_name: New_GPT4
     endpoints:
