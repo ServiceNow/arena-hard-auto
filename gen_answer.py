@@ -52,7 +52,7 @@ def get_answer(
     encoding = tiktoken.encoding_for_model("gpt-3.5-turbo")
     # print("check path: ")
     # print(os.system("ls -lR /tmp/transformers_cache/models--mistralai--Mistral-7B-Instruct-v0.1/snapshots/"))
-    tokenizer = AutoTokenizer.from_pretrained(endpoint_info.get("tokenizer", "mistralai/Mistral-7B-Instruct-v0.1"))
+    tokenizer = AutoTokenizer.from_pretrained(endpoint_info.get("tokenizer", "mistralai/Mistral-7B-Instruct-v0.1"), token = "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")
     choices = []
     for i in range(num_choices):
         turns = []
