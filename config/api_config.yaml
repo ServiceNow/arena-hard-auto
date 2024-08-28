@@ -27,7 +27,7 @@ gpt-4-1106-preview:
     parallel: 50
 
 PLATO-GPT4T:
-    model_name: gpt-4-turbo-preview
+    model_name: PLATO-GPT4T
     endpoints:
         - api_base: https://gpt4-plato.openai.azure.com/
           api_key: 1d93db4fbdad4f24bde984dc33331be2
