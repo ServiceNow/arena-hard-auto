@@ -1,0 +1,44 @@
+# name: str
+#     model_name: str
+#     endpoints: default to null
+#         - api_base: str
+#           api_key: str
+#           api_version: str optional (only for azure)
+#     api_type: str
+#     tokenizer: str optional (to optimize token limits)
+#     parallel: int
+
+gpt-3.5-turbo-0125:
+    model_name: gpt-3.5-turbo-0125
+    endpoints: null
+    api_type: openai
+    parallel: 50
+
+gpt-4-0314:
+    model_name: gpt-4-0314
+    endpoints: null
+    api_type: openai
+    parallel: 50
+
+gpt-4-1106-preview:
+    model_name: gpt-4-1106-preview
+    endpoints: null
+    api_type: openai
+    parallel: 50
+
+PLATO-GPT4T:
+    model_name: PLATO-GPT4T
+    endpoints:
+        - api_base: url
+          api_key: api_key
+          api_version: 2024-02-15-preview
+    api_type: azure
+    parallel: 50
+
+_official_now_llm_release_nowllm_0524:
+    model_name: _official_now_llm_release_nowllm_0524
+    endpoints:
+        - api_base: url
+          api_key: api_key
+    api_type: toolkit_tgi
+    parallel: 50
