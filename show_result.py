@@ -254,7 +254,8 @@ if __name__ == "__main__":
 
     if args.output:
         cur_date = datetime.datetime.now()
-        date_str = cur_date.strftime("%Y%m%d")
+        print('cur_date', cur_date)
+        date_str = cur_date.strftime("%Y%m%d_%H%M%S")
         stats = stats.drop(columns=['results'])
         CI = []
         for i in range(len(stats)):
