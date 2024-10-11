@@ -385,10 +385,11 @@ def now_tgi(model, messages, temperature, max_tokens, api_dict=None):
         payload = json.dumps({
             "inputs": prompt,
             "parameters": {
-                "temperature": temperature,
-                "max_new_tokens": max_tokens,
-                "do_sample": do_sample,
-                "num_beams": 1
+                "temperature": 0.001,
+                "max_new_tokens": 1000,
+                "stop": ["<|end|>"]
+                # "do_sample": do_sample,
+                # "num_beams": 1
             }
         })
         # print("payload: ", payload)
@@ -406,13 +407,7 @@ def now_tgi(model, messages, temperature, max_tokens, api_dict=None):
 
 
 def apply_chat_template(messages, template: str = "mistralai/Mistral-7B-Instruct-v0.1"):
-    # try:
-    #     tokenizer = AutoTokenizer.from_pretrained(template)
-    #     tokenized_chat = tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
-    # except Exception as e:
-    #     print(type(e), e)
-    #     tokenized_chat = messages
-    tokenized_chat = "<s><|user|>\n" + messages[0]["content"] + "\n<|end|>\n<|assistant|>\n"
+    tokenized_chat = "<|user|>\n" + messages[0]["content"] + "\n<|end|>\n<|assistant|>\n"
     return tokenized_chat
 
 def get_prompt_json_array(messages):
