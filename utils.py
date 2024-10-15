@@ -394,7 +394,7 @@ def now_tgi(model, messages, temperature, max_tokens, api_dict=None):
         })
         # print("payload: ", payload)
         # print("before inference:", os.system("df -h /tmp"))
-        response = requests.post(url, headers=headers, data=payload)
+        response = requests.post(url, headers=headers, data=payload, verify=False)
         print("response: ", response)
         output = response.json()["generated_text"]
         # print("output: ", output)
